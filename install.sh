@@ -1,6 +1,8 @@
 #!/usr/bin/sh
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+NVIM_BEGINNER=$DIR/nvim-beginner
+echo $NVIM_BEGINNER
 
-NVIM_BEGINNER=~/.config/nvim-beginner
 export NVIM_BEGINNER
 
 rm -rf $NVIM_BEGINNER
