@@ -8,7 +8,7 @@
 -- * override the configuration of LazyVim plugins
 return {
   {
-      "nvim-neo-tree/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
     enabled=false,
   },
   -- add gruvbox
@@ -39,6 +39,7 @@ return {
     "folke/trouble.nvim",
     -- opts will be merged with the parent spec
     opts = { use_diagnostic_signs = true },
+    enabled=false,
   },
 
   -- disable trouble
@@ -127,11 +128,15 @@ return {
 
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
-  { import = "lazyvim.plugins.extras.lang.typescript" },
+  { 
+    enabled=false,
+    import = "lazyvim.plugins.extras.lang.typescript" 
+  },
 
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
+	enable=false,
     opts = {
       ensure_installed = {
         "bash",
@@ -157,6 +162,7 @@ return {
   -- If you'd rather extend the default config, use the code below instead:
   {
     "nvim-treesitter/nvim-treesitter",
+	enable=false,
     opts = function(_, opts)
       -- add tsx and treesitter
       vim.list_extend(opts.ensure_installed, {
@@ -194,16 +200,15 @@ return {
   { import = "lazyvim.plugins.extras.ui.mini-starter" },
 
   -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
-  { import = "lazyvim.plugins.extras.lang.json" },
+  { import = "lazyvim.plugins.extras.lang.json" ,
+    enabled=false,
+  },
 
   -- add any tools you want to have installed below
   {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
         "flake8",
       },
     },
